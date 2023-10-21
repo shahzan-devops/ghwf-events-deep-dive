@@ -1,7 +1,16 @@
 name: Events Demo 1
 on: 
   pull_request:
+    types:
+      - opened
   workflow_dispatch:
+  push:
+    branches:
+      - main
+      - 'CLOUD-*' # dev-new dev-this-new
+      - 'feat/**' # feat/new feat/new/button
+    paths-ignore:
+      - '.github/workflows/*'
 jobs:
   deploy:
     runs-on: ubuntu-latest
